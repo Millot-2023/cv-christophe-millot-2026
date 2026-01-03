@@ -1,0 +1,176 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+}
+
+/* --- VARIABLES --- */
+/* --- LAYOUT HEADER --- */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  z-index: 2000;
+}
+.main-header .header-inner {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* --- LE BURGER --- */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2101;
+}
+.burger-menu span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #000;
+}
+
+/* --- NAVIGATION DESKTOP --- */
+.nav-list {
+  display: flex;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list li {
+  display: flex;
+  height: 100%;
+}
+.nav-list li a {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #000;
+  height: 100%;
+  transition: background 0.2s;
+}
+.nav-list li a:hover {
+  background-color: #e0e0e0;
+}
+
+/* --- SECTION HERO (Full Width & Full Height Immersif) --- */
+.hero-accueil {
+  width: 100%;
+  /* Occupe 100% de la hauteur visible moins le header */
+  height: calc(100vh - 70px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+.hero-accueil picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* Suppression du max-width pour l'immersion totale */
+}
+.hero-accueil .hero-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* Remplit tout l'espace sans déformer l'image */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- CONFIGURATION MOBILE --- */
+@media (max-width: 800px) {
+  .burger-menu {
+    display: flex;
+  }
+  .nav-list {
+    display: none;
+  }
+  .nav-list.is-open {
+    display: flex !important;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #e0e0e0;
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 2100;
+  }
+  .nav-list li {
+    width: 100%;
+    flex: 1;
+    display: flex;
+  }
+  .nav-list li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+  }
+  .nav-list li a:hover {
+    background-color: #c0c0c0;
+  }
+}
+/* --- ESPACEMENT --- */
+main {
+  margin-top: 70px;
+}
+
+.main-footer {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+.main-footer .footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=style.css.map */
