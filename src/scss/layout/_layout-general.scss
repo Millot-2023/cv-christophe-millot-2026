@@ -1,0 +1,48 @@
+/* --- MISE EN PAGE GLOBALE --- */
+
+.container {
+    //max-width: 1200px;    // Largeur maximale du contenu
+    margin: 0 auto;       // Centre le bloc horizontalement
+    padding: 10px 25px;      // Marges de sécurité sur les côtés (évite de coller au bord)
+    width: 100%;          // S'adapte aux petits écrans
+    }
+
+section {
+    padding: 0px 0;      // Respiration verticale entre chaque section
+    }
+
+.intro {
+    text-align: center;   // Centre le texte de ton H1
+    background-color: #fff;
+    }
+
+.deux-blocs{
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    }
+
+.blocs-introduction{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    }
+
+@media (min-width: 800px) {
+.deux-blocs{
+    margin:auto;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+
+    }
+
+    .blocs-introduction{
+    display:flex;
+    flex-direction:row;
+
+    }
+
+
+}

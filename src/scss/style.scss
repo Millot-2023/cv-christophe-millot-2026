@@ -1,3 +1,11 @@
+/*@import "base/reset";
+@import "base/styles-fonts";
+@import "layout/header";
+@import "layout/layout-general";
+@import "layout/footer";*/
+
 @use "base/reset";
+@use "base/styles-fonts";
 @use "layout/header";
+@use "layout/layout-general";
 @use "layout/footer";
