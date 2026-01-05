@@ -1,0 +1,56 @@
+.technos-section {
+    padding: 80px 20px;
+    background-color: #fff;
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .tech-grid {
+        display: grid;
+        gap: 20px;
+        
+        /* ÉTAT MOBILE : 1 COLONNE UNIQUE */
+        grid-template-columns: 1fr;
+    }
+
+    .tech-item {
+        border: 1px solid #eee;
+        padding: 30px 15px;
+        text-align: center;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+
+        span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #333;
+            /* Empêche le texte de casser le cadre si le mot est trop long */
+            display: block; 
+            word-wrap: break-word;
+        }
+
+        &:hover {
+            border-color: #000;
+            background-color: #fcfcfc;
+        }
+    }
+}
+
+/* --- BREAKPOINT UNIQUE : 800px --- */ 
+@media (min-width: 800px) {
+    .technos-section {
+        .tech-grid {
+            /* ÉTAT DESKTOP : 3 COLONNES STRICTES */
+            /* Le "repeat(3...)" empêche d'avoir une 4ème colonne */
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}

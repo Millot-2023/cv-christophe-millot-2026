@@ -2,6 +2,12 @@
 $h-header: 70px;
 $gray-light: #e0e0e0; 
 
+/* --- COMPORTEMENT GLOBAL --- */
+html {
+    scroll-behavior: smooth;
+}
+
+
 /* --- LAYOUT HEADER --- */
 .main-header {
     position: fixed;
