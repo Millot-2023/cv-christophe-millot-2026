@@ -315,6 +315,10 @@ main {
 }
 
 /* Cible du scroll pour que le H1 soit bien placé */
+/*#intro {
+    scroll-margin-top: $h-header; 
+}*/
+/* Cible du scroll pour que la section suivante remplace totalement le Hero */
 #intro {
   scroll-margin-top: 70px;
 }
