@@ -1,19 +1,17 @@
 /* --- MISE EN PAGE GLOBALE --- */
 
-.container {
-    margin: 0 auto;
-    padding: 10px 25px;
-    width: 100%;
+
+
+
+
+
+.etat-civil {
+background-color: LIGHTgreen;
+padding: 20px;
+
 }
 
-section {
-    padding: 0px 0;
-}
 
-.intro {
-    text-align: center;
-    background-color: red;
-}
 
 .deux-blocs {
     margin: auto;
@@ -27,7 +25,8 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    height: 25vh;
+    cursor:pointer;
+
 }
 
 /* --- BREAKPOINT UNIQUE : 800px --- */

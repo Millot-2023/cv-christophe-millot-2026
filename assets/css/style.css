@@ -29,7 +29,7 @@ h1 {
   font-family: "Montserrat", sans-serif;
   color: #1a1a1a;
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 0px;
   margin-top: 10px;
 }
@@ -320,19 +320,9 @@ main {
 }
 
 /* --- MISE EN PAGE GLOBALE --- */
-.container {
-  margin: 0 auto;
-  padding: 10px 25px;
-  width: 100%;
-}
-
-section {
-  padding: 0px 0;
-}
-
-.intro {
-  text-align: center;
-  background-color: red;
+.etat-civil {
+  background-color: LIGHTgreen;
+  padding: 20px;
 }
 
 .deux-blocs {
@@ -361,7 +351,7 @@ section {
       -ms-flex-align: center;
           align-items: center;
   gap: 20px;
-  height: 25vh;
+  cursor: pointer;
 }
 
 /* --- BREAKPOINT UNIQUE : 800px --- */
@@ -395,7 +385,7 @@ section {
 
 .technos-section {
   padding: 80px 20px;
-  background-color: #fff;
+  background-color: lightgray;
 }
 .technos-section .container {
   max-width: 1100px;
@@ -418,6 +408,7 @@ section {
   border-radius: 4px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .technos-section .tech-item span {
   font-family: "Inter", sans-serif;
