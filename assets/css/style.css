@@ -322,7 +322,7 @@ main {
 /* --- MISE EN PAGE GLOBALE --- */
 .etat-civil {
   background-color: LIGHTgreen;
-  padding: 20px;
+  padding: 40px; /*PADDING DE L4INTRODUCTION*/
 }
 
 .deux-blocs {
@@ -384,7 +384,7 @@ main {
 }
 
 .technos-section {
-  padding: 80px 20px;
+  padding: 50px 20px;
   background-color: lightgray;
 }
 .technos-section .container {
