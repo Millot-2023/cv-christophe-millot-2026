@@ -25,11 +25,15 @@ h1 {
     margin-top: 10px;
 }
 
+h1.cmillot{
+    font-size: 2.3rem;
+}
+
 h2 {
     font-family: $font-titles;
     color: $color-black; // Remplacé le rouge par le noir
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 2.3rem;
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -41,4 +45,24 @@ h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+
+/* --- BREAKPOINT UNIQUE : 800px --- */
+@media (min-width: 800px) {
+h1 {
+    font-family: $font-titles;
+    color: $color-black; // Remplacé le rouge par le noir
+    font-weight: 900;
+    font-size: 2.5rem;     // Impact fort pour le titre principal
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+h1.cmillot{
+    font-size: 2.5rem;
+}
+
+
+
 }

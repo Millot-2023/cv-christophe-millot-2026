@@ -34,11 +34,15 @@ h1 {
   margin-top: 10px;
 }
 
+h1.cmillot {
+  font-size: 2.3rem;
+}
+
 h2 {
   font-family: "Montserrat", sans-serif;
   color: #1a1a1a;
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 2.3rem;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -52,6 +56,20 @@ h3 {
   margin-top: 10px;
 }
 
+/* --- BREAKPOINT UNIQUE : 800px --- */
+@media (min-width: 800px) {
+  h1 {
+    font-family: "Montserrat", sans-serif;
+    color: #1a1a1a;
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 0px;
+    margin-top: 10px;
+  }
+  h1.cmillot {
+    font-size: 2.5rem;
+  }
+}
 /* --- VARIABLES --- */
 /* --- COMPORTEMENT GLOBAL --- */
 html {
@@ -157,13 +175,41 @@ html {
   text-decoration: none;
   color: #000;
   height: 100%;
-  -webkit-transition: background 0.2s;
-  transition: background 0.2s;
+  position: relative; /* Nécessaire pour le soulignement */
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  /* Suppression du background gris en desktop (Instruction 2026-01-05) */
 }
 .nav-list li a:hover {
-  background-color: #e0e0e0;
+  background-color: transparent;
 }
 
+/* --- EFFET DE SOULIGNEMENT (DESKTOP UNIQUEMENT) --- */
+/* --- EFFET DE SOULIGNEMENT (AJUSTÉ AU TEXTE) --- */
+@media (min-width: 801px) {
+  .nav-list li a {
+    /* On crée un pseudo-élément qui va se baser sur le texte */
+  }
+  .nav-list li a::after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    -webkit-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  .nav-list li a:hover::after {
+    /* On utilise une valeur calculée ou on réduit la zone */
+    /* Pour coller au texte, 50% à 70% est souvent l'idéal 
+       si on veut un look minimaliste. */
+    width: calc(100% - 40px); /* On retire les 20px de padding de chaque côté */
+  }
+}
 /* --- SECTION HERO (Full Width & Height + Animation Flèche) --- */
 .hero-accueil {
   position: relative;
@@ -300,33 +346,97 @@ html {
     font-weight: bold;
     text-decoration: none;
     color: #000;
+    /* Conservation du fond gris sur mobile pour le retour tactile */
   }
   .nav-list li a:hover {
     background-color: #c0c0c0;
   }
 }
-/* --- COMPORTEMENT GLOBAL --- */
-html {
-  scroll-behavior: smooth;
-}
-
 main {
   margin-top: 70px;
 }
 
-/* Cible du scroll pour que le H1 soit bien placé */
-/*#intro {
-    scroll-margin-top: $h-header; 
-}*/
 /* Cible du scroll pour que la section suivante remplace totalement le Hero */
 #intro {
   scroll-margin-top: 70px;
 }
 
+/* --- HERO SECTION : POSITIONNEMENT ET SUPERPOSITION --- */
+.hero-accueil {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* Centre verticalement le titre */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /* Centre horizontalement le titre */
+  overflow: hidden;
+  /* L'IMAGE : Fond fixe */
+  /* LE TEXTE : Superposé au centre */
+  /* LA FLÈCHE : Verrouillée en bas (ne bougera plus avec le texte) */
+}
+.hero-accueil picture, .hero-accueil .hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.hero-accueil .hero-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.hero-accueil .hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  /* Annulation du fond gris de l'intro pour le Hero */
+}
+.hero-accueil .hero-content .hero-title {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+.hero-accueil .hero-content .hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  font-weight: 300;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+.hero-accueil .hero-content .etat-civil {
+  background-color: transparent;
+  padding: 0;
+}
+.hero-accueil .scroll-indicator {
+  position: absolute; /* Fondamental pour qu'elle ne soit plus poussée */
+  bottom: 120px; /* Distance fixe par rapport au bas du Hero */
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 3;
+  display: block; /* S'assure que le lien prend bien sa place */
+}
+
 /* --- MISE EN PAGE GLOBALE --- */
+.expertise-summary {
+  scroll-margin-top: 60px;
+}
+
 .etat-civil {
-  background-color: LIGHTgreen;
-  padding: 40px; /*PADDING DE L4INTRODUCTION*/
+  background-color: lightgrey;
+  padding: 40px;
 }
 
 .deux-blocs {
@@ -389,7 +499,7 @@ main {
 
 .technos-section {
   padding: 50px 20px;
-  background-color: lightgray;
+  background-color: #f4f4f4;
 }
 .technos-section .container {
   max-width: 1100px;
@@ -398,6 +508,8 @@ main {
 .technos-section h2 {
   text-align: center;
   margin-bottom: 50px;
+  font-family: "Inter", sans-serif;
+  color: #222;
 }
 .technos-section .tech-grid {
   display: grid;
@@ -406,33 +518,72 @@ main {
   grid-template-columns: 1fr;
 }
 .technos-section .tech-item {
-  border: 1px solid #eee;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
   padding: 30px 15px;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 8px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.technos-section .tech-item i {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  display: block;
+  color: #444;
 }
 .technos-section .tech-item span {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #333;
-  /* Empêche le texte de casser le cadre si le mot est trop long */
   display: block;
   word-wrap: break-word;
 }
-.technos-section .tech-item:hover {
-  border-color: #000;
-  background-color: #fcfcfc;
+
+.tech-grid a.tech-item {
+  text-decoration: none; /* Supprime le soulignement */
+  color: inherit; /* Garde la couleur de texte initiale (noir ou gris foncé) */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /* On s'assure que le lien se comporte comme un bloc */
+}
+.tech-grid a.tech-item:hover {
+  text-decoration: none; /* Sécurité pour le survol */
+  /* Ici tu peux ajouter ton effet de survol discret si tu le souhaites */
 }
 
-/* --- BREAKPOINT UNIQUE : 800px --- */
+/* --- BREAKPOINT DESKTOP : 800px --- */
 @media (min-width: 800px) {
   .technos-section .tech-grid {
     /* ÉTAT DESKTOP : 3 COLONNES STRICTES */
-    /* Le "repeat(3...)" empêche d'avoir une 4ème colonne */
     grid-template-columns: repeat(3, 1fr);
+  }
+  .technos-section .tech-item {
+    cursor: pointer;
+  }
+  .technos-section .tech-item:hover {
+    border-color: #000;
+    background-color: #ffffff;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+  .technos-section .tech-item:hover i {
+    color: #000;
   }
 }/*# sourceMappingURL=style.css.map */

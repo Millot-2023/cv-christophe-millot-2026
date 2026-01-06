@@ -7,7 +7,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 /* --- LAYOUT HEADER --- */
 .main-header {
     position: fixed;
@@ -74,18 +73,46 @@ html {
             text-decoration: none;
             color: #000;
             height: 100%;
-            transition: background 0.2s;
+            position: relative; /* Nécessaire pour le soulignement */
+            transition: all 0.3s ease;
 
+            /* Suppression du background gris en desktop (Instruction 2026-01-05) */
             &:hover {
-                background-color: $gray-light; 
+                background-color: transparent; 
             }
+        }
+    }
+}
+
+/* --- EFFET DE SOULIGNEMENT (DESKTOP UNIQUEMENT) --- */
+/* --- EFFET DE SOULIGNEMENT (AJUSTÉ AU TEXTE) --- */
+@media (min-width: 801px) {
+    .nav-list li a {
+        /* On crée un pseudo-élément qui va se baser sur le texte */
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            transition: width 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        &:hover::after {
+            /* On utilise une valeur calculée ou on réduit la zone */
+            /* Pour coller au texte, 50% à 70% est souvent l'idéal 
+               si on veut un look minimaliste. */
+            width: calc(100% - 40px); /* On retire les 20px de padding de chaque côté */
         }
     }
 }
 
 /* --- SECTION HERO (Full Width & Height + Animation Flèche) --- */
 .hero-accueil {
-    position: relative; // Nécessaire pour positionner la flèche
+    position: relative; 
     width: 100%;
     height: calc(100vh - #{$h-header}); 
     overflow: hidden;
@@ -121,7 +148,7 @@ html {
             display: block;
             width: 25px;
             height: 25px;
-            border-bottom: 4px solid #fff; // Flèche blanche pour ressortir sur l'image
+            border-bottom: 4px solid #fff; 
             border-right: 4px solid #fff;
             transform: rotate(45deg);
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
@@ -175,6 +202,7 @@ html {
                 text-decoration: none;
                 color: #000;
 
+                /* Conservation du fond gris sur mobile pour le retour tactile */
                 &:hover { 
                     background-color: #c0c0c0; 
                 }
@@ -183,25 +211,11 @@ html {
     }
 }
 
-/* --- COMPORTEMENT GLOBAL --- */
-html {
-    scroll-behavior: smooth; // Défilement fluide pour l'effet de disparition
-}
-
 main {
     margin-top: $h-header; 
 }
 
-/* Cible du scroll pour que le H1 soit bien placé */
-/*#intro {
-    scroll-margin-top: $h-header; 
-}*/
 /* Cible du scroll pour que la section suivante remplace totalement le Hero */
 #intro {
-    // On force la section à remonter exactement sous le header
     scroll-margin-top: $h-header; 
-    
-    // Si tu veux être sûr qu'on ne voie PLUS DU TOUT le hero, 
-    // on peut même ajouter un petit pixel de sécurité
-    // scroll-margin-top: calc(#{$h-header} - 1px); 
 }

@@ -9,9 +9,9 @@
 
             <ul class="nav-list" id="js-nav-menu">
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="?page=edition">Édition</a></li>
-                <li><a href="?page=ux-ui">UX-Ui</a></li>
-                <li><a href="?page=css">CSS</a></li>
+                <li><a href="print.php">Print</a></li>
+                <li><a href="uxui.php">UX-Ui</a></li>
+                <li><a href="sasscss.php">CSS</a></li>
             </ul>
         </nav>
     </div>
