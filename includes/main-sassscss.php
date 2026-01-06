@@ -30,39 +30,32 @@
 
 <section id="technos" class="technos-section">
     <div class="container">
-        <h2>Savoir-faire Technique & Créatif</h2>
-        <div class="tech-grid" role="list">
-            
+        <h2>Savoir-faire SASS & CSS</h2>
+        <!--<div class="tech-grid" role="list">
             <a href="infographie.php" class="tech-item" role="listitem">
                 <i class="fas fa-pen-nib" aria-hidden="true"></i>
                 <span>Infographie (Adobe)</span>
             </a>
-
             <a href="uxui.php" class="tech-item" role="listitem">
                 <i class="fab fa-figma" aria-hidden="true"></i>
                 <span>UX-UI Design (Figma)</span>
             </a>
-
             <a href="htmlcss.php" class="tech-item" role="listitem">
                 <i class="fab fa-html5" aria-hidden="true"></i>
                 <span>HTML5 / CSS3</span>
             </a>
-
             <a href="sassscss.php" class="tech-item" role="listitem">
                 <i class="fab fa-sass" aria-hidden="true"></i>
                 <span>Sass / SCSS</span>
             </a>
-
             <a href="gestiongit.php" class="tech-item" role="listitem">
                 <i class="fab fa-git-alt" aria-hidden="true"></i>
                 <span>Gestion de projet (Git)</span>
             </a>
-
             <a href="accessibilite.php" class="tech-item" role="listitem">
                 <i class="fas fa-universal-access" aria-hidden="true"></i>
                 <span>Accessibilité & Ergonomie</span>
             </a>
-
-        </div>
+        </div>-->
     </div>
 </section>

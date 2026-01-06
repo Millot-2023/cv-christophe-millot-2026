@@ -11,7 +11,11 @@
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="print.php">Print</a></li>
                 <li><a href="uxui.php">UX-Ui</a></li>
-                <li><a href="sasscss.php">CSS</a></li>
+                <li><a href="sasscss.php">HTML/CSS</a></li>
+                <!--<li><a href="sasscss.php">SASS/SCSS</a></li>
+                <li><a href="sasscss.php">GIT</a></li>
+                <li><a href="sasscss.php">Accesibilité</a></li>-->
+
             </ul>
         </nav>
     </div>

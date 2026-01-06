@@ -29,7 +29,7 @@
 <section id="technos" class="technos-section">
     <div class="container">
         <h2>Savoir-faire Technique & Créatif</h2>
-        <div class="tech-grid" role="list">
+        <!--<div class="tech-grid" role="list">
             
             <a href="infographie.php" class="tech-item" role="listitem">
                 <i class="fas fa-pen-nib" aria-hidden="true"></i>
@@ -63,4 +63,4 @@
 
         </div>
     </div>
-</section>
+</section>-->
