@@ -27,7 +27,7 @@
 </section>
 
 
-<!--
+
 <section id="technos" class="technos-section">
     <div class="container">
         <h2>Savoir-faire Technique & Créatif</h2>
@@ -65,4 +65,4 @@
 
         </div>
     </div>
-</section>-->
+</section>

@@ -80,7 +80,7 @@
             <h3>Infographie & Édition Print</h3>
             <div class="expertise-intro">
                 <p><strong>Expertise de 20 ans dans la chaîne graphique.</strong> De la création d'identités visuelles à la gestion de catalogues complexes, je maîtrise les contraintes techniques de l'impression et la suite Adobe pour garantir une exécution parfaite de vos supports de communication.</p>
-                <a href="print.php" class="btn-detail">Découvrir mes réalisations <i class="fas fa-arrow-right"></i></a>
+                <a href="infographie.php" class="btn-detail">Découvrir mes réalisations <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@
             <h3>Sass / SCSS</h3>
             <div class="expertise-intro">
                 <p><strong>Architecture CSS moderne.</strong> J'utilise Sass pour structurer mes feuilles de style de manière modulaire et maintenable. L'utilisation de variables, de mixins et d'imbrications me permet d'optimiser le workflow de développement tout en garantissant un code propre.</p>
-                <a href="sassscss.php" class="btn-detail">Détails de ma méthode Sass <i class="fas fa-arrow-right"></i></a>
+                <a href="sasscss.php" class="btn-detail">Détails de ma méthode Sass <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
