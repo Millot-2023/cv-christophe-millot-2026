@@ -13,7 +13,7 @@ html {
     width: 100%;
     height: variables.$h-header; 
     background: variables.$color-white;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid variables.$gray-light; // Utilisation de ta variable grise
     z-index: 2000;
 
     .header-inner {
@@ -28,15 +28,9 @@ html {
 .logo {
     display: flex;
     align-items: center; 
-    font-weight: bold;
+    font-weight: 900; // Aligné sur fonts-rules
     text-decoration: none;
-    color: variables.$color-secondary;
-}
-
-.main-nav {
-    display: flex;
-    align-items: center; 
-    height: 100%;
+    color: variables.$color-black-pro; // Remplacement de secondary
 }
 
 /* --- LE BURGER --- */
@@ -56,7 +50,7 @@ html {
         display: block; 
         width: 100%; 
         height: 4px; 
-        background: variables.$color-secondary;
+        background: variables.$color-black-pro; // Remplacement de secondary
     }
 }
 
@@ -77,29 +71,30 @@ html {
             align-items: center; 
             padding: 0 20px;
             text-decoration: none;
-            color: variables.$color-secondary;
+            color: variables.$color-black-pro; // Remplacement de secondary
             height: 100%;
             position: relative;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
 
             &:hover {
-                background-color: transparent; 
+                color: variables.$color-black-pro; 
+                background-color: transparent; // Respect de l'instruction 05/01
             }
         }
     }
 }
 
-/* --- EFFET DE SOULIGNEMENT (DESKTOP) --- */
+/* --- EFFET DE SOULIGNEMENT DISCRET (DESKTOP) --- */
 @media (min-width: 801px) {
     .nav-list li a {
         &::after {
             content: '';
             position: absolute;
-            bottom: 20px;
+            bottom: 15px; // Un peu plus haut pour le style
             left: 50%;
             width: 0;
             height: 2px;
-            background-color: variables.$color-secondary;
+            background-color: variables.$color-black-pro; // Ligne en Noir Pro
             transition: width 0.3s ease;
             transform: translateX(-50%);
         }
@@ -108,52 +103,6 @@ html {
             width: calc(100% - 40px);
         }
     }
-}
-
-/* --- SECTION HERO --- */
-.hero-accueil {
-    position: relative; 
-    width: 100%;
-    height: calc(100vh - #{variables.$h-header}); 
-    overflow: hidden;
-    display: flex;
-    justify-content: center; 
-    background-color: variables.$color-white;
-
-    picture, .hero-image {
-        width: 100%;
-        height: 100%; 
-        display: block;
-        object-fit: cover;
-        object-position: center; 
-    }
-
-    .scroll-indicator {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        cursor: pointer;
-        padding: 10px;
-
-        .arrow {
-            display: block;
-            width: 25px;
-            height: 25px;
-            border-bottom: 4px solid variables.$color-white; 
-            border-right: 4px solid variables.$color-white;
-            transform: rotate(45deg);
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-            animation: bounceArrow 2s infinite;
-        }
-    }
-}
-
-@keyframes bounceArrow {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
-    40% { transform: translateY(-15px) rotate(45deg); }
-    60% { transform: translateY(-7px) rotate(45deg); }
 }
 
 /* --- CONFIGURATION MOBILE --- */
@@ -170,7 +119,7 @@ html {
             left: 0;
             width: 100%;
             height: calc(100vh - #{variables.$h-header}); 
-            background: variables.$gray-light;
+            background: variables.$color-white; // Fond blanc pour rester propre
             flex-direction: column;
             z-index: 2100;
         }
@@ -178,16 +127,19 @@ html {
         li {
             width: 100%; 
             flex: 1;
+            border-bottom: 1px solid variables.$gray-light;
+
             a {
                 justify-content: center; 
                 width: 100%; 
-                font-size: 1.5rem;
-                &:hover { background-color: #c0c0c0; }
+                font-size: 1.2rem;
+                color: variables.$color-black-pro;
+
+                &:hover { 
+                    background-color: transparent; 
+                    text-decoration: underline;
+                }
             }
         }
     }
 }
-
-main { margin-top: variables.$h-header; }
-
-#intro { scroll-margin-top: variables.$h-header; }

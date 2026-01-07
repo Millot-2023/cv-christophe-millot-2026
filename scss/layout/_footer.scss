@@ -1,14 +1,56 @@
+@use '../abstracts/variables';
+
 .main-footer {
     width: 100%;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-    padding: 20px 0;
+    background-color: variables.$color-black-pro; 
+    border-top: 1px solid #333; // On garde une nuance sombre pour la structure
+    padding: 40px 0 20px 0; 
     text-align: center;
     font-size: 0.9rem;
-    color: #666;
+    color: variables.$color-white;
 
     .footer-inner {
         max-width: 1200px;
         margin: 0 auto;
+    }
+
+    .footer-navigation, .footer-socials {
+        margin-bottom: 20px;
+
+        a {
+            // Utilisation de la variable de texte secondaire pour le contraste
+            color: variables.$color-text-muted; 
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: variables.$color-white; 
+                text-decoration: underline; // Soulignement discret (Instruction du 05/01)
+            }
+        }
+    }
+
+    .footer-copyright {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #333; 
+        font-size: 0.8rem;
+        // Le copyright est encore plus discret
+        color: variables.$color-text-muted;
+        opacity: 0.7; 
+    }
+
+    /* Rendu Mobile (Instruction du 05/01) */
+    @media (max-width: 800px) {
+        padding: 20px 0;
+        font-size: 0.8rem;
+
+        .footer-navigation a {
+            display: block; 
+            margin: 10px 0;
+            // Pas de changement de fond au survol (Instruction du 05/01)
+        }
     }
 }

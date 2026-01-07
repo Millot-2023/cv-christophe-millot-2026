@@ -1,40 +1,29 @@
 @use '../abstracts/variables';
 
-// 1. STYLE DU CORPS
+// 1. STYLE DU CORPS (Le texte courant)
 body {
     font-family: variables.$font-body;
     font-size: 18px;
     line-height: 1.6;
-    color: variables.$color-black-pro;
+    // On utilise le rôle plutôt que la couleur brute
+    color: variables.$color-text-main; 
     -webkit-font-smoothing: antialiased;
 }
 
-// 2. STYLE DES TITRES (Correction du 's' et des rôles)
+// On cible explicitement les paragraphes si besoin de spécificité
+p {
+    margin-bottom: 1.5rem;
+    color: variables.$color-text-main;
+}
+
+// 2. STYLE DES TITRES
 h1, h2, h3, .hero-title, .logo {
-    font-family: variables.$font-title; // Correction : pas de 's'
+    font-family: variables.$font-title;
     line-height: 1.1;
     margin-top: 20px;
     margin-bottom: 15px;
+    // On utilise le rôle titre
+    color: variables.$color-text-titles; 
 }
 
-// TON NOM (Le Logo)
-.logo {
-    color: variables.$color-logo; 
-    font-weight: 900;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-// TITRES SPECIFIQUES
-h1 {
-    font-weight: 900;
-    font-size: 2.5rem;
-}
-
-.hero-title {
-    color: variables.$color-hero-text;
-    font-weight: 900;
-}
-
-h2 { font-weight: 800; font-size: 2.1rem; }
-h3 { font-weight: 700; font-size: 1.5rem; }
+// ... le reste de ton code (logo, hero-title) ne change pas
