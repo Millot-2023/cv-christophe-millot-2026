@@ -1,0 +1,20 @@
+// --- DESIGN SYSTEM : CV-CHRISTOPHE-MILLOT-2026 ---
+
+// 1. COULEURS DE BASE
+$color-primary:   #FFD700;    // Jaune chantier
+$color-secondary: #000000;    // Noir
+$color-black-pro: #1a1a1a;    // Ton Noir identité
+$color-white:     #FFFFFF;    
+$color-bg-light:  #F4F4F4;    
+$gray-light:      #e0e0e0;    
+
+// 2. ATTRIBUTION PAR RÔLE (La Charte)
+$color-logo:      $color-black-pro; // Ton nom est Noir Pro
+$color-hero-text: $color-white;     // Les titres sur image sont Blancs
+
+// 3. DIMENSIONS
+$h-header:        70px;       
+
+// 4. POLICES (C'EST ICI QUE ÇA MANQUAIT)
+$font-title:      'Montserrat', sans-serif;
+$font-body:       'Inter', sans-serif;

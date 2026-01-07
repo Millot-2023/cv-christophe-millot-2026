@@ -1,10 +1,47 @@
 @charset "UTF-8";
-/*@import "base/reset";
-@import "base/styles-fonts";
-@import "layout/header";
-@import "layout/layout-general";
-@import "layout/footer";*/
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .hero-title, .logo {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.1;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.logo {
+  color: #1a1a1a;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.hero-title {
+  color: #FFFFFF;
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 2.1rem;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,60 +54,6 @@ body {
   background: #f4f4f4;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1 {
-  font-family: "Montserrat", sans-serif;
-  color: #1a1a1a;
-  font-weight: 900;
-  font-size: 2.5rem;
-  margin-bottom: 0px;
-  margin-top: 10px;
-}
-
-h1.cmillot {
-  font-size: 2.3rem;
-}
-
-h2 {
-  font-family: "Montserrat", sans-serif;
-  color: #1a1a1a;
-  font-weight: 800;
-  font-size: 2.3rem;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-h3 {
-  font-family: "Montserrat", sans-serif;
-  color: #1a1a1a;
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-/* --- BREAKPOINT UNIQUE : 800px --- */
-@media (min-width: 800px) {
-  h1 {
-    font-family: "Montserrat", sans-serif;
-    color: #1a1a1a;
-    font-weight: 900;
-    font-size: 2.5rem;
-    margin-bottom: 0px;
-    margin-top: 10px;
-  }
-  h1.cmillot {
-    font-size: 2.5rem;
-  }
-}
-/* --- VARIABLES --- */
 /* --- COMPORTEMENT GLOBAL --- */
 html {
   scroll-behavior: smooth;
@@ -83,7 +66,7 @@ html {
   left: 0;
   width: 100%;
   height: 70px;
-  background: #fff;
+  background: #FFFFFF;
   border-bottom: 1px solid #ccc;
   z-index: 2000;
 }
@@ -110,7 +93,7 @@ html {
           align-items: center;
   font-weight: bold;
   text-decoration: none;
-  color: #000;
+  color: #000000;
 }
 
 .main-nav {
@@ -145,7 +128,7 @@ html {
   display: block;
   width: 100%;
   height: 4px;
-  background: #000;
+  background: #000000;
 }
 
 /* --- NAVIGATION DESKTOP --- */
@@ -173,23 +156,18 @@ html {
           align-items: center;
   padding: 0 20px;
   text-decoration: none;
-  color: #000;
+  color: #000000;
   height: 100%;
-  position: relative; /* Nécessaire pour le soulignement */
+  position: relative;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  /* Suppression du background gris en desktop (Instruction 2026-01-05) */
 }
 .nav-list li a:hover {
   background-color: transparent;
 }
 
-/* --- EFFET DE SOULIGNEMENT (DESKTOP UNIQUEMENT) --- */
-/* --- EFFET DE SOULIGNEMENT (AJUSTÉ AU TEXTE) --- */
+/* --- EFFET DE SOULIGNEMENT (DESKTOP) --- */
 @media (min-width: 801px) {
-  .nav-list li a {
-    /* On crée un pseudo-élément qui va se baser sur le texte */
-  }
   .nav-list li a::after {
     content: "";
     position: absolute;
@@ -197,20 +175,17 @@ html {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #000;
+    background-color: #000000;
     -webkit-transition: width 0.3s ease;
     transition: width 0.3s ease;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
   .nav-list li a:hover::after {
-    /* On utilise une valeur calculée ou on réduit la zone */
-    /* Pour coller au texte, 50% à 70% est souvent l'idéal 
-       si on veut un look minimaliste. */
-    width: calc(100% - 40px); /* On retire les 20px de padding de chaque côté */
+    width: calc(100% - 40px);
   }
 }
-/* --- SECTION HERO (Full Width & Height + Animation Flèche) --- */
+/* --- SECTION HERO --- */
 .hero-accueil {
   position: relative;
   width: 100%;
@@ -222,15 +197,9 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #fff;
-  /* --- LA FLÈCHE (INDICATEUR DE SCROLL) --- */
+  background-color: #FFFFFF;
 }
-.hero-accueil picture {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.hero-accueil .hero-image {
+.hero-accueil picture, .hero-accueil .hero-image {
   width: 100%;
   height: 100%;
   display: block;
@@ -253,8 +222,8 @@ html {
   display: block;
   width: 25px;
   height: 25px;
-  border-bottom: 4px solid #fff;
-  border-right: 4px solid #fff;
+  border-bottom: 4px solid #FFFFFF;
+  border-right: 4px solid #FFFFFF;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
@@ -263,7 +232,6 @@ html {
           animation: bounceArrow 2s infinite;
 }
 
-/* --- ANIMATION REBOND --- */
 @-webkit-keyframes bounceArrow {
   0%, 20%, 50%, 80%, 100% {
     -webkit-transform: translateY(0) rotate(45deg);
@@ -278,6 +246,7 @@ html {
             transform: translateY(-7px) rotate(45deg);
   }
 }
+
 @keyframes bounceArrow {
   0%, 20%, 50%, 80%, 100% {
     -webkit-transform: translateY(0) rotate(45deg);
@@ -316,9 +285,6 @@ html {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
     z-index: 2100;
   }
   .nav-list li {
@@ -326,27 +292,13 @@ html {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
   .nav-list li a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     width: 100%;
-    height: 100%;
     font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
-    /* Conservation du fond gris sur mobile pour le retour tactile */
   }
   .nav-list li a:hover {
     background-color: #c0c0c0;
@@ -356,7 +308,6 @@ main {
   margin-top: 70px;
 }
 
-/* Cible du scroll pour que la section suivante remplace totalement le Hero */
 #intro {
   scroll-margin-top: 70px;
 }
@@ -364,21 +315,21 @@ main {
 /* --- HERO SECTION : POSITIONNEMENT ET SUPERPOSITION --- */
 .hero-accueil {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 70px);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; /* Centre verticalement le titre */
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center; /* Centre horizontalement le titre */
+          justify-content: center;
   overflow: hidden;
   /* L'IMAGE : Fond fixe */
   /* LE TEXTE : Superposé au centre */
-  /* LA FLÈCHE : Verrouillée en bas (ne bougera plus avec le texte) */
+  /* LA FLÈCHE : Verrouillée en bas */
 }
 .hero-accueil picture, .hero-accueil .hero-image {
   position: absolute;
@@ -396,11 +347,13 @@ main {
   position: relative;
   z-index: 2;
   width: 100%;
-  color: #ffffff;
+  color: #FFFFFF;
   text-align: center;
   /* Annulation du fond gris de l'intro pour le Hero */
 }
 .hero-accueil .hero-content .hero-title {
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(2rem, 8vw, 4rem);
   font-weight: 800;
   text-transform: uppercase;
@@ -409,6 +362,7 @@ main {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 .hero-accueil .hero-content .hero-subtitle {
+  font-family: "Inter", sans-serif;
   font-size: clamp(1rem, 3vw, 1.8rem);
   font-weight: 300;
   margin-top: 10px;
@@ -420,22 +374,22 @@ main {
   padding: 0;
 }
 .hero-accueil .scroll-indicator {
-  position: absolute; /* Fondamental pour qu'elle ne soit plus poussée */
-  bottom: 120px; /* Distance fixe par rapport au bas du Hero */
+  position: absolute;
+  bottom: 120px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   z-index: 3;
-  display: block; /* S'assure que le lien prend bien sa place */
+  display: block;
 }
 
 /* --- MISE EN PAGE GLOBALE --- */
 .expertise-summary {
-  scroll-margin-top: 60px;
+  scroll-margin-top: 70px;
 }
 
 .etat-civil {
-  background-color: lightgrey;
+  background-color: #e0e0e0;
   padding: 40px;
 }
 
@@ -483,20 +437,6 @@ main {
             flex-direction: row;
   }
 }
-.main-footer {
-  width: 100%;
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-}
-.main-footer .footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .technos-section {
   padding: 50px 20px;
   background-color: #f4f4f4;
@@ -586,4 +526,17 @@ main {
   .technos-section .tech-item:hover i {
     color: #000;
   }
+}
+.main-footer {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+.main-footer .footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
 }/*# sourceMappingURL=style.css.map */

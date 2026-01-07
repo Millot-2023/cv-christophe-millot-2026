@@ -1,6 +1,4 @@
-/* --- VARIABLES --- */
-$h-header: 70px;
-$gray-light: #e0e0e0; 
+@use '../abstracts/variables';
 
 /* --- COMPORTEMENT GLOBAL --- */
 html {
@@ -10,9 +8,11 @@ html {
 /* --- LAYOUT HEADER --- */
 .main-header {
     position: fixed;
-    top: 0; left: 0; width: 100%;
-    height: $h-header;
-    background: #fff;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: variables.$h-header; 
+    background: variables.$color-white;
     border-bottom: 1px solid #ccc;
     z-index: 2000;
 
@@ -30,7 +30,7 @@ html {
     align-items: center; 
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: variables.$color-secondary;
 }
 
 .main-nav {
@@ -46,12 +46,17 @@ html {
     justify-content: space-between;
     width: 30px; 
     height: 22px; 
-    background: none; border: none; padding: 0;
+    background: none; 
+    border: none; 
+    padding: 0;
     cursor: pointer;
     z-index: 2101;
 
     span {
-        display: block; width: 100%; height: 4px; background: #000;
+        display: block; 
+        width: 100%; 
+        height: 4px; 
+        background: variables.$color-secondary;
     }
 }
 
@@ -60,7 +65,8 @@ html {
     display: flex;
     height: 100%; 
     list-style: none;
-    margin: 0; padding: 0;
+    margin: 0; 
+    padding: 0;
 
     li {
         display: flex;
@@ -71,12 +77,11 @@ html {
             align-items: center; 
             padding: 0 20px;
             text-decoration: none;
-            color: #000;
+            color: variables.$color-secondary;
             height: 100%;
-            position: relative; /* Nécessaire pour le soulignement */
+            position: relative;
             transition: all 0.3s ease;
 
-            /* Suppression du background gris en desktop (Instruction 2026-01-05) */
             &:hover {
                 background-color: transparent; 
             }
@@ -84,11 +89,9 @@ html {
     }
 }
 
-/* --- EFFET DE SOULIGNEMENT (DESKTOP UNIQUEMENT) --- */
-/* --- EFFET DE SOULIGNEMENT (AJUSTÉ AU TEXTE) --- */
+/* --- EFFET DE SOULIGNEMENT (DESKTOP) --- */
 @media (min-width: 801px) {
     .nav-list li a {
-        /* On crée un pseudo-élément qui va se baser sur le texte */
         &::after {
             content: '';
             position: absolute;
@@ -96,37 +99,28 @@ html {
             left: 50%;
             width: 0;
             height: 2px;
-            background-color: #000;
+            background-color: variables.$color-secondary;
             transition: width 0.3s ease;
             transform: translateX(-50%);
         }
 
         &:hover::after {
-            /* On utilise une valeur calculée ou on réduit la zone */
-            /* Pour coller au texte, 50% à 70% est souvent l'idéal 
-               si on veut un look minimaliste. */
-            width: calc(100% - 40px); /* On retire les 20px de padding de chaque côté */
+            width: calc(100% - 40px);
         }
     }
 }
 
-/* --- SECTION HERO (Full Width & Height + Animation Flèche) --- */
+/* --- SECTION HERO --- */
 .hero-accueil {
     position: relative; 
     width: 100%;
-    height: calc(100vh - #{$h-header}); 
+    height: calc(100vh - #{variables.$h-header}); 
     overflow: hidden;
     display: flex;
     justify-content: center; 
-    background-color: #fff;
+    background-color: variables.$color-white;
 
-    picture {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-
-    .hero-image {
+    picture, .hero-image {
         width: 100%;
         height: 100%; 
         display: block;
@@ -134,7 +128,6 @@ html {
         object-position: center; 
     }
 
-    /* --- LA FLÈCHE (INDICATEUR DE SCROLL) --- */
     .scroll-indicator {
         position: absolute;
         bottom: 30px;
@@ -148,8 +141,8 @@ html {
             display: block;
             width: 25px;
             height: 25px;
-            border-bottom: 4px solid #fff; 
-            border-right: 4px solid #fff;
+            border-bottom: 4px solid variables.$color-white; 
+            border-right: 4px solid variables.$color-white;
             transform: rotate(45deg);
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
             animation: bounceArrow 2s infinite;
@@ -157,7 +150,6 @@ html {
     }
 }
 
-/* --- ANIMATION REBOND --- */
 @keyframes bounceArrow {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
     40% { transform: translateY(-15px) rotate(45deg); }
@@ -166,9 +158,7 @@ html {
 
 /* --- CONFIGURATION MOBILE --- */
 @media (max-width: 800px) {
-    .burger-menu {
-        display: flex; 
-    }
+    .burger-menu { display: flex; }
 
     .nav-list {
         display: none; 
@@ -176,46 +166,28 @@ html {
         &.is-open {
             display: flex !important;
             position: fixed;
-            top: $h-header; 
+            top: variables.$h-header; 
             left: 0;
             width: 100%;
-            height: calc(100vh - #{$h-header}); 
-            background: $gray-light;
+            height: calc(100vh - #{variables.$h-header}); 
+            background: variables.$gray-light;
             flex-direction: column;
-            align-items: stretch; 
             z-index: 2100;
         }
 
         li {
             width: 100%; 
             flex: 1;
-            display: flex;
-
             a {
-                display: flex;
                 justify-content: center; 
-                align-items: center; 
                 width: 100%; 
-                height: 100%;
                 font-size: 1.5rem;
-                font-weight: bold;
-                text-decoration: none;
-                color: #000;
-
-                /* Conservation du fond gris sur mobile pour le retour tactile */
-                &:hover { 
-                    background-color: #c0c0c0; 
-                }
+                &:hover { background-color: #c0c0c0; }
             }
         }
     }
 }
 
-main {
-    margin-top: $h-header; 
-}
+main { margin-top: variables.$h-header; }
 
-/* Cible du scroll pour que la section suivante remplace totalement le Hero */
-#intro {
-    scroll-margin-top: $h-header; 
-}
+#intro { scroll-margin-top: variables.$h-header; }

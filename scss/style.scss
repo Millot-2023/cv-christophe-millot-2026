@@ -1,0 +1,13 @@
+// 1. Les variables (Source de vérité)
+@use 'abstracts/variables';
+
+// 2. Les polices (Ton isolation demandée)
+@use 'base/fonts-imports';
+@use 'base/fonts-rules';
+
+// 3. Le reste du projet
+@use 'base/reset';
+@use 'layout/header';
+@use 'layout/layout-general';
+@use 'layout/technos';
+@use 'layout/footer';

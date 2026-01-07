@@ -1,11 +1,13 @@
+@use '../abstracts/variables';
+
 /* --- HERO SECTION : POSITIONNEMENT ET SUPERPOSITION --- */
 .hero-accueil {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - #{variables.$h-header}); 
     width: 100%;
     display: flex;
-    align-items: center;    /* Centre verticalement le titre */
-    justify-content: center; /* Centre horizontalement le titre */
+    align-items: center;    
+    justify-content: center; 
     overflow: hidden;
 
     /* L'IMAGE : Fond fixe */
@@ -27,10 +29,13 @@
         position: relative;
         z-index: 2;
         width: 100%;
-        color: #ffffff;
+        color: variables.$color-white;
         text-align: center; 
 
         .hero-title {
+            // CORRECTION : On utilise la variable de rôle définie dans la charte
+            color: variables.$color-hero-text; 
+            font-family: variables.$font-title; // Correction orthographe (pas de s)
             font-size: clamp(2rem, 8vw, 4rem); 
             font-weight: 800;
             text-transform: uppercase;
@@ -40,6 +45,7 @@
         }
 
         .hero-subtitle {
+            font-family: variables.$font-body; // Ajout pour la charte
             font-size: clamp(1rem, 3vw, 1.8rem);
             font-weight: 300;
             margin-top: 10px;
@@ -54,25 +60,25 @@
         }
     }
 
-    /* LA FLÈCHE : Verrouillée en bas (ne bougera plus avec le texte) */
+    /* LA FLÈCHE : Verrouillée en bas */
     .scroll-indicator {
-        position: absolute;  /* Fondamental pour qu'elle ne soit plus poussée */
-        bottom: 120px;        /* Distance fixe par rapport au bas du Hero */
+        position: absolute;
+        bottom: 120px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 3;
-        display: block;      /* S'assure que le lien prend bien sa place */
+        display: block;
     }
 }
 
 /* --- MISE EN PAGE GLOBALE --- */
 
 .expertise-summary {
-    scroll-margin-top: 60px; 
+    scroll-margin-top: variables.$h-header; 
 }
 
 .etat-civil {
-    background-color: lightgrey;
+    background-color: variables.$gray-light; 
     padding: 40px;
 }
 

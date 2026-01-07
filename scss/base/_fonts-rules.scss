@@ -1,0 +1,40 @@
+@use '../abstracts/variables';
+
+// 1. STYLE DU CORPS
+body {
+    font-family: variables.$font-body;
+    font-size: 18px;
+    line-height: 1.6;
+    color: variables.$color-black-pro;
+    -webkit-font-smoothing: antialiased;
+}
+
+// 2. STYLE DES TITRES (Correction du 's' et des rôles)
+h1, h2, h3, .hero-title, .logo {
+    font-family: variables.$font-title; // Correction : pas de 's'
+    line-height: 1.1;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+// TON NOM (Le Logo)
+.logo {
+    color: variables.$color-logo; 
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+// TITRES SPECIFIQUES
+h1 {
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+.hero-title {
+    color: variables.$color-hero-text;
+    font-weight: 900;
+}
+
+h2 { font-weight: 800; font-size: 2.1rem; }
+h3 { font-weight: 700; font-size: 1.5rem; }
